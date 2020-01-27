@@ -39,7 +39,7 @@ def One_Peak_BGS(gain, bfs, width, dfd, noise_factor):
             for w in width:
                 m=0
                 for d in dfd:
-                    g_res[i, j, k, m] = g/(1 + ((d-b)/(w/2))**2 ) + np.float32(np.random.normal(0,noise_factor))
+                    g_res[i, j, k, m] = g/(1 + ((d-b)/(w/2))**2 ) + np.float32(np.random.normal(0,noise_factor))*g
                     m+=1
                 k+=1
             j+=1
