@@ -33,7 +33,7 @@ def main():
     plt.title('test')
     plt.plot(gain_array[0,0,0,0,:])
     
-    return gain_array, noise, [gain, bfs, width, dfd]
+    return gain_array, [gain, bfs, width, noise, dfd]
 
 #@jit
 def One_Peak_BGS(gain, bfs, width, noise, dfd):
