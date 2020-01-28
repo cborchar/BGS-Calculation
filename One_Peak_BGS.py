@@ -35,7 +35,7 @@ def main():
     
     return gain_array, [gain, bfs, width, noise, dfd]
 
-#@jit
+@jit
 def One_Peak_BGS(gain, bfs, width, noise, dfd):
     #init of g_res:
     g_res = np.zeros((len(gain),len(bfs),len(width), len(noise), len(dfd)))
