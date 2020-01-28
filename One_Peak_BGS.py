@@ -13,8 +13,8 @@ def main():
     
     gain  = np.ndarray.tolist(np.linspace(1,2,1))
     bfs   = np.ndarray.flatten(calculate_BFS(np.linspace(0, 40, 10), np.linspace(0, 60, 10)))
-    width = np.ndarray.tolist(np.linspace(100, 1000, 100))
-    dfd   = np.ndarray.tolist(np.linspace(0, 1000, 1000))
+    width = np.ndarray.tolist(np.linspace(2, 4, 10))
+    dfd   = np.ndarray.tolist(np.linspace(10, 11, 1000))
     noise = 0.01
     
     gain_array = One_Peak_BGS(gain, bfs, width, dfd, noise)
