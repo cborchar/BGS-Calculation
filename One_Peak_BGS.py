@@ -38,7 +38,7 @@ def main():
 #@jit
 def One_Peak_BGS(gain, bfs, width, noise, dfd):
     #init of g_res:
-    g_res = np.zeros((len(gain),len(bfs),len(width),len(dfd)))
+    g_res = np.zeros((len(gain),len(bfs),len(width), len(noise), len(dfd)))
     
     i=0
     for g in gain:
