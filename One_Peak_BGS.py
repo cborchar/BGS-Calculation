@@ -18,9 +18,9 @@ def main():
     #initialize lists of parameters:
     gain  = np.ndarray.tolist(np.linspace(1,2,1))
     bfs   = np.ndarray.flatten(calculate_BFS(np.linspace(0, 40, num_Temp), np.linspace(0, 60, num_strain)))
-    width = np.ndarray.tolist(np.linspace(100, 1000, 100))
+    width = np.ndarray.tolist(np.linspace(2, 4, 10))
     noise = np.ndarray.tolist(np.linspace(0.1,1,1))    
-    dfd   = np.ndarray.tolist(np.linspace(0, 1000, 1000))
+    dfd   = np.ndarray.tolist(np.linspace(10, 11, 1000))
     
     #calculate list of BGS:
     gain_array = One_Peak_BGS(gain, bfs, width, noise, dfd)
