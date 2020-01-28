@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Jan 27 15:50:24 2020
-
 @author: cborchar
 """
 import numpy as np
@@ -12,10 +11,10 @@ from matplotlib import pyplot as plt
 
 def main():
     
-    gain  = np.linspace(1,10,2)
-    bfs   = np.linspace(100, 1000, 100)
-    width = np.linspace(100, 1000, 100)
-    dfd   = np.linspace(0, 1000, 1000)
+    gain  = np.ndarray.tolist(np.linspace(1,2,1))
+    bfs   = np.ndarray.flatten(calculate_BFS(np.linspace(0, 40, 10), np.linspace(0, 60, 10)))
+    width = np.ndarray.tolist(np.linspace(100, 1000, 100))
+    dfd   = np.ndarray.tolist(np.linspace(0, 1000, 1000))
     noise = 0.01
     
     gain_array = One_Peak_BGS(gain, bfs, width, dfd, noise)
@@ -24,7 +23,7 @@ def main():
     plt.title('test')
     plt.plot(gain_array[0,0,0,:])
     
-    return gain_array, noise, [gain, bfs, width, dfd]
+    return gain_array, noise, [gain, np.ndarray.flatten(bfs), width, dfd]
 
 @jit
 def One_Peak_BGS(gain, bfs, width, dfd, noise_factor):
@@ -47,10 +46,19 @@ def One_Peak_BGS(gain, bfs, width, dfd, noise_factor):
         
     return g_res
 
+def calculate_BFS(temperature, strain):
+    BFS_res = np.zeros((len(temperature), len(strain)))
+    
+    i = 0
+    for t in temperature:
+        j = 0
+        for s in strain:
+           BFS_res[i][j] = 0.0010546 * (t - 22.0) + 0.0000385 * (s - 0.0) + 10.85 
+           j+=1
+        i+=1
+    return BFS_res
+
+
 if __name__ == '__main__':
     main()
     
-
-
-
-
